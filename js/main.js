@@ -21,6 +21,8 @@ searchInputEl.addEventListener('blur', function() {
   searchInputEl.setAttribute('placeholder', '');
 });
 
+
+// 배지 관련
 const badgeEl = document.querySelector('header .badges');
 
 window.addEventListener('scroll', _.throttle(function() {
@@ -43,3 +45,12 @@ window.addEventListener('scroll', _.throttle(function() {
 // throttle = lodash 제공 , 300 = 0.3초 => 즉 일정시간 동안 1번씩 실행 되도록 제한
 // _.throttle(함수, 시간)
 
+
+// 순차적으로 이미지 출력
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function(fadeEl, index) {
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * .7, // 0.7, 1.4, 2.1, 2.7 ...
+    opacity: 1
+  });
+});
