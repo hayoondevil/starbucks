@@ -56,13 +56,13 @@ fadeEls.forEach(function(fadeEl, index) {
 });
 
 
+// Swiper
 // new Swiper(선택자, 옵션)
 new Swiper('.notice-line .swiper-container', {
   direction: 'vertical',
   autoplay: true,
   loop: true  
 });
-
 new Swiper('.promotion .swiper-container', {
   slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
   spaceBetween: 10, // 슬라이드 사이 여백
@@ -80,6 +80,18 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 });
+new Swiper('.awards .swiper-container', {
+  direction: 'horizontal', // default로 생략 가능
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5, // 한번에 5개 화면 출력
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next',
+  }
+})
+
 
 
 const promotionEl = document.querySelector('.promotion');
@@ -130,3 +142,4 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller());
 });
+
